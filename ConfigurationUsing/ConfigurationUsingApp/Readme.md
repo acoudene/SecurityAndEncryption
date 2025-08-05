@@ -1,4 +1,10 @@
-# Kubernetes
+# Environment Variables as secrets
+
+- Define this variable only for IIS process or application.
+- This variable should not be available to system level or other processes.
+- Logs should not contain this variable.
+
+# Kubernetes approach for secrets
 
 ## Yaml
 

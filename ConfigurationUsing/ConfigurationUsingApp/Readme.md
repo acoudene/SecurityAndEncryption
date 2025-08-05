@@ -4,6 +4,33 @@
 - This variable should not be available to system level or other processes.
 - Logs should not contain this variable.
 
+# Docker Swarm approach for secrets
+
+## Secret cration
+
+`docker secret create my-secret -`
+
+## Secret declaration in Yaml
+
+```yaml
+secrets:
+  my-secret:
+    external: true
+```
+
+## Secret usage in Yaml
+
+```yaml 
+services:
+  my-service:
+    secrets:
+      - my-secret
+```
+
+## Secret location
+
+`/run/secrets/my-secret`
+
 # Kubernetes approach for secrets
 
 ## Yaml

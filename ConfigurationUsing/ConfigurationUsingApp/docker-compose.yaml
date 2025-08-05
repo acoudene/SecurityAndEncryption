@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  console-app:
+    image: acoudene/configurationusingapp:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    secrets:
+      - my-secret
+    entrypoint: ["/bin/sh", "-c", "export AppConfig__Message=$(cat /run/secrets/my-secret) && dotnet ConfigurationUsingApp.dll"]
+
+secrets:
+  my-secret:
+    external: true

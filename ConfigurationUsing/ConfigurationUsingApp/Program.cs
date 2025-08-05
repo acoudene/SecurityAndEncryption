@@ -14,7 +14,11 @@ builder.Configuration
   .AddEnvironmentVariables()
   .AddCommandLine(args);
 
-builder.Services.Configure<AppConfig>(builder.Configuration.GetSection("AppConfig"));
+builder.Services
+   .AddOptions<AppConfig>()
+   .Bind(builder.Configuration.GetSection("AppConfig"))
+   .ValidateDataAnnotations()
+   .ValidateOnStart();
 
 builder.Services.AddTransient<AppConfigService>();
 

@@ -28,6 +28,9 @@ spec:
             cpu: "250m"
         env:
         - name: AppConfig__Message
-          value: "Bonjour depuis Kubernetes via variable d'Environnement'"
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: secret-message
         - name: AppConfig__ImportanceLevel
           value: "2"

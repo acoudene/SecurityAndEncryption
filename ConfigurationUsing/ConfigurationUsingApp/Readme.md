@@ -6,10 +6,12 @@
 
 # How to set environment variables in Windows
 
-Use the command line or PowerShell to set environment variables:
+Use the command line or PowerShell to set environment variables.
+
+Example here with process level:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("AppConfig__Message", "My secret value", "Anthony")
+[System.Environment]::SetEnvironmentVariable("AppConfig__Message", "My secret value", "Process") | dotnet .\ConfigurationUsingApp.dll
 ```
 
 But if IIS is used, it is better to set the environment variable in the IIS application pool or web application settings.

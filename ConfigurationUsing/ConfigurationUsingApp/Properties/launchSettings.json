@@ -1,0 +1,30 @@
+{
+  "profiles": {
+    "ConfigurationUsingApp_CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "--AppConfig:Message=\"Bonjour depuis la ligne de commande !\" --AppConfig:ImportanceLevel=1",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+        "AppConfig__Message": "Bonjour depuis les variables d'environnement !",
+        "AppConfig__ImportanceLevel": "2"
+      }
+    },
+    "ConfigurationUsingApp_ENV": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+        "AppConfig__Message": "Bonjour depuis les variables d'environnement !",
+        "AppConfig__ImportanceLevel": "2"
+      }
+    },
+    "ConfigurationUsingApp_JSON": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

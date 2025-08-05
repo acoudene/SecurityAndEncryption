@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configuration-using-app
+  labels:
+    app: configuration-using-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: configuration-using-app
+  template:
+    metadata:
+      labels:
+        app: configuration-using-app
+    spec:
+      containers:
+      - name: configuration-using-app
+        image: acoudene/configurationusingapp:latest
+        imagePullPolicy: Always
+        command: ["dotnet", "ConfigurationUsingApp.dll"]
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+        env:
+        - name: AppConfig__Message
+          value: "Bonjour depuis Kubernetes via variable d'Environnement'"
+        - name: AppConfig__ImportanceLevel
+          value: "2"

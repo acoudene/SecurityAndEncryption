@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObsucationApp", "ObsucationApp\ObsucationApp.csproj", "{61C949D6-168B-4A6A-A1CE-5E883B91EEEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObfuscationApp", "ObfuscationApp\ObfuscationApp.csproj", "{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{61C949D6-168B-4A6A-A1CE-5E883B91EEEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61C949D6-168B-4A6A-A1CE-5E883B91EEEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61C949D6-168B-4A6A-A1CE-5E883B91EEEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61C949D6-168B-4A6A-A1CE-5E883B91EEEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

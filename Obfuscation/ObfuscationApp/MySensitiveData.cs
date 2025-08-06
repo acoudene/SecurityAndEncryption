@@ -1,5 +1,8 @@
-﻿namespace ObsucationApp;
+﻿using System.Reflection;
 
+namespace ObsucationApp;
+
+[Obfuscation(Feature = "renaming", ApplyToMembers = true, Exclude = false)]
 public class MySensitiveData
 {
   public const string _mySecretKey = "MySuperSecret";

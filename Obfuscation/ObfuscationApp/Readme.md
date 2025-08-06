@@ -21,9 +21,13 @@ public class MySensitiveData
 
 The program load code, clear assembly, and obfuscate version of it, by renaming and then by encryption.
 
+![ClearAssembly.png](ClearAssembly.png)
+
 # Community Edition
 
 Just do renaming of the members and types.
+
+![DotfuscatedByRenamingAssembly.png](DotfuscatedByRenamingAssembly.png)
 
 # Professional Edition
 

@@ -49,11 +49,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Libraries\DotNetReactor\DotNetReactor.nrproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libraries\DotfuscatedByRenaming\Dotfuscated_ObfuscationLib.net461.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Libraries\DotfuscatedByRenaming\Dotfuscator.xml" />
+    <Content Include="Libraries\DotfuscatedByRenaming\Map.xml" />
     <Content Include="Libraries\DotNetReactor\DotNetReactor_ObfuscationLib.net461.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

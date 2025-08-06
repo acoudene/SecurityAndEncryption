@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObfuscationApp.net461", "ObfuscationApp.net461\ObfuscationApp.net461.csproj", "{B9196A80-B95C-4FC0-8329-C0D8516FC74A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObfuscationLib.net461", "ObfuscationLib.net461\ObfuscationLib.net461.csproj", "{A70FEE96-82AD-469D-A7E3-DFCD2E9139BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9196A80-B95C-4FC0-8329-C0D8516FC74A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9196A80-B95C-4FC0-8329-C0D8516FC74A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9196A80-B95C-4FC0-8329-C0D8516FC74A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9196A80-B95C-4FC0-8329-C0D8516FC74A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A70FEE96-82AD-469D-A7E3-DFCD2E9139BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A70FEE96-82AD-469D-A7E3-DFCD2E9139BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A70FEE96-82AD-469D-A7E3-DFCD2E9139BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A70FEE96-82AD-469D-A7E3-DFCD2E9139BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20E723AF-1610-4106-B8D7-AF8F1AC5A408}
+	EndGlobalSection
+EndGlobal

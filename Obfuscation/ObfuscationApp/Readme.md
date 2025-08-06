@@ -44,6 +44,16 @@ Problem here. Professional edition does not work on my computer.
 
 ![DotNetReactorAssembly.png](DotNetReactorAssembly.png)
 
+# C++ use case
+
+Try to look at a secret string in C++ code (dumpbin is a Visual Studio CLI tool)
+
+```cmd
+dumpbin /all ObfuscationLib_cpp.dll | findstr "MySuperSecret"
+```
+
+C++ is not obfuscated, but it is compiled to native code.
+
 # References
 
 - Article on Obfuscator tools: https://blog.ndepend.com/in-the-jungle-of-net-obfuscator-tools/

@@ -18,26 +18,24 @@ TryToLoadSecretFromAssembly(dotfuscatedByRenamingAssemblyPath);
 void TryToLoadSecretFromAssembly(string path)
 {
   Assembly assembly = Assembly.LoadFrom(path);
-  Type ? type = assembly.GetType("ObsucationApp.MySensitiveData");
 
-  if (type is not null)
-  {   
-    FieldInfo? fieldInfo = type.GetField("_mySecretKey", BindingFlags.Public | BindingFlags.Static);
-
-    if (fieldInfo != null)
-    {
-      object? value = fieldInfo.GetValue(null);
-      Console.WriteLine($"Your secret from assembly {path} is: {value}");
-    }
-    else
-    {
-      Console.WriteLine("No secret found.");
-    }
-  }
-  else
+  string typeName = "ObsucationApp.MySensitiveData";
+  Type? type = assembly.GetType(typeName);
+  if (type is null)
   {
-    Console.WriteLine("Instance cannot be loaded.");
+    Console.WriteLine($"Type {typeName} is not found.");
+    return;
   }
+
+  FieldInfo? fieldInfo = type.GetField("_mySecretKey", BindingFlags.Public | BindingFlags.Static);
+  if (fieldInfo is null)
+  {
+    Console.WriteLine("No secret found.");
+    return;
+  }
+
+  object? value = fieldInfo.GetValue(null);
+  Console.WriteLine($"Your secret from assembly {path} is: {value}");
 }
 
 

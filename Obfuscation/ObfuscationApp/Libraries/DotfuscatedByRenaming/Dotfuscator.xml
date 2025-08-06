@@ -8,11 +8,11 @@
   <input>
     <loadpaths />
     <asmlist>
-      <inputassembly refid="b3beb95e-4bb7-48af-8a5c-b138405f8b1a">
+      <inputassembly refid="7779f7e3-2be6-4235-8dbf-45b0742cfa2a">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>transformxaml</option>
-        <file dir="C:\Github\acoudene\SecurityAndEncryption\Obfuscation\ObfuscationApp\Libraries" name="ObfuscationApp.dll" />
+        <file dir="C:\Github\acoudene\SecurityAndEncryption\Obfuscation\ObfuscationApp\Libraries" name="ObfuscationLib.dll" />
       </inputassembly>
     </asmlist>
   </input>

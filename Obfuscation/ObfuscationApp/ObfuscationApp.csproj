@@ -8,10 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Libraries\DotfuscatedByRenaming\ObfuscationApp.dll">
+    <None Include="Libraries\DotNetReactor\DotNetReactor.nrproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Libraries\DotfuscatedByRenaming\Dotfuscated_ObfuscationLib.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Libraries\ObfuscationApp.dll">
+    <None Update="Libraries\DotNetReactor\DotNetReactor_ObfuscationLib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Libraries\ObfuscationLib.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

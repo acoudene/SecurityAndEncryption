@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ObsucationApp;
+namespace ObfuscationLib;
 
 [Obfuscation(Feature = "renaming", ApplyToMembers = true, Exclude = false)]
 public class MySensitiveData

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObfuscationApp", "ObfuscationApp\ObfuscationApp.csproj", "{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObfuscationLib", "ObfuscationLib\ObfuscationLib.csproj", "{88220F6A-F574-4D83-8C07-D1D0CF74FF71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE3EF6BA-F41C-6220-4BA3-30C03CFF6006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88220F6A-F574-4D83-8C07-D1D0CF74FF71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88220F6A-F574-4D83-8C07-D1D0CF74FF71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88220F6A-F574-4D83-8C07-D1D0CF74FF71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88220F6A-F574-4D83-8C07-D1D0CF74FF71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,12 +23,29 @@ The program load code, clear assembly, and obfuscate version of it, by renaming 
 
 ![ClearAssembly.png](ClearAssembly.png)
 
-# Community Edition
+# Output
+
+![Output.png](Output.png)
+
+# Dotfuscator 
+
+## Community Edition
 
 Just do renaming of the members and types.
 
 ![DotfuscatedByRenamingAssembly.png](DotfuscatedByRenamingAssembly.png)
 
-# Professional Edition
+## Professional Edition
 
 Do encryption of the members and types.
+Problem here. Professional edition does not work on my computer.
+
+# .Net Reactor
+
+![DotNetReactorAssembly.png](DotNetReactorAssembly.png)
+
+# References
+
+- Article on Obfuscator tools: https://blog.ndepend.com/in-the-jungle-of-net-obfuscator-tools/
+- Dotfuscator: https://www.preemptive.com/products/dotfuscator/overview
+- .Net Reactor: https://www.eziriz.com/dotnet_reactor.htm

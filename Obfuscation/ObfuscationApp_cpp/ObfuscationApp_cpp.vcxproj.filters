@@ -16,12 +16,6 @@
     <Filter Include="Libraries">
       <UniqueIdentifier>{9463b832-2183-40b9-82b8-4785526d1ea1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Libraries\DotNetReactor">
-      <UniqueIdentifier>{c396e6c0-c74c-4da9-92f4-253b0907fd4c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Libraries\DotfuscatedByRenaming">
-      <UniqueIdentifier>{6e920912-2b4b-4e62-b6a8-7e6cec644d50}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ObfuscationApp_cpp.cpp">
@@ -31,12 +25,6 @@
   <ItemGroup>
     <None Include="Libraries\ObfuscationLib_cpp.dll">
       <Filter>Libraries</Filter>
-    </None>
-    <None Include="Libraries\DotNetReactor\DotNetReactor_ObfuscationLib_cpp.dll">
-      <Filter>Libraries\DotNetReactor</Filter>
-    </None>
-    <None Include="Libraries\DotfuscatedByRenaming\Dotfuscated_ObfuscationLib_cpp.dll">
-      <Filter>Libraries\DotfuscatedByRenaming</Filter>
     </None>
   </ItemGroup>
 </Project>

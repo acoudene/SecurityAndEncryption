@@ -126,8 +126,6 @@
     <ClCompile Include="ObfuscationApp_cpp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Libraries\DotfuscatedByRenaming\Dotfuscated_ObfuscationLib_cpp.dll" />
-    <None Include="Libraries\DotNetReactor\DotNetReactor_ObfuscationLib_cpp.dll" />
     <None Include="Libraries\ObfuscationLib_cpp.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

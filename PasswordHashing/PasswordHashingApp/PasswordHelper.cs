@@ -1,31 +1,30 @@
 ﻿namespace PasswordHashingApp;
 
-using Konscious.Security.Cryptography;
 using System;
 using System.Security.Cryptography;
-using System.Text;
 
 public static class PasswordHelper
 {
-  public static (string Hash, string Salt) HashPassword(string password, Func<string, string, string> hash)
+  public static string GenerateRandomSalt(int length = 16)
   {
-    // Random salt generation
-    byte[] saltBytes = new byte[16];
+    if (length <= 0)
+      throw new ArgumentException("Salt length must be greater than zero.", nameof(length));
+    byte[] saltBytes = new byte[length];
     using (var rng = RandomNumberGenerator.Create())
     {
       rng.GetBytes(saltBytes);
     }
+    return Convert.ToBase64String(saltBytes);
+  }
 
-    string saltBase64 = Convert.ToBase64String(saltBytes);
-    string hashBase64 = hash(password, saltBase64);
-
-    return (hashBase64, saltBase64);
-  } 
+  public static string HashPassword(string password, string salt, Func<string, string, string> hash)
+  {
+    return hash(password, salt);
+  }
 
   public static bool VerifyPassword(string password, string storedHash, string storedSalt, Func<string, string, string> hash)
   {
-    string hashBase64 = hash(password, storedSalt);
-    return hashBase64 == storedHash;
+    return hash(password, storedSalt) == storedHash;
   }
 }
 

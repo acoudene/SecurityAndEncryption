@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoRsaApp", "CryptoRsaApp\CryptoRsaApp.csproj", "{FA6F40A5-EBCC-42D8-854D-4345CB29349A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignRsaApp", "SignRsaApp\SignRsaApp.csproj", "{F2DF2F34-717F-4316-9C8E-56BA3A97B7BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA6F40A5-EBCC-42D8-854D-4345CB29349A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA6F40A5-EBCC-42D8-854D-4345CB29349A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA6F40A5-EBCC-42D8-854D-4345CB29349A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA6F40A5-EBCC-42D8-854D-4345CB29349A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2DF2F34-717F-4316-9C8E-56BA3A97B7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DF2F34-717F-4316-9C8E-56BA3A97B7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2DF2F34-717F-4316-9C8E-56BA3A97B7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DF2F34-717F-4316-9C8E-56BA3A97B7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1EC9CB4-663C-4F13-ACA4-BA4BB2C22572}
+	EndGlobalSection
+EndGlobal

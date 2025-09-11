@@ -40,6 +40,8 @@ public class PersonneController : ControllerBase
       {
         conn.Open();
         var commande = conn.CreateCommand();
+
+        /// NOTE - Injection: IndicationNom=%'; DELETE FROM PERSONNES --
         commande.CommandText = "SELECT nom, prenom, age FROM PERSONNES WHERE nom LIKE '%" + IndicationNom + "%'";
 
         using (var reader = commande.ExecuteReader())

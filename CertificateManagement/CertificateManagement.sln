@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationCertificateApp", "AuthenticationCertificateApp\AuthenticationCertificateApp\AuthenticationCertificateApp.csproj", "{763F8E26-8C36-4D6B-BC07-CC71A1232EBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationCertificateApp.Client", "AuthenticationCertificateApp\AuthenticationCertificateApp.Client\AuthenticationCertificateApp.Client.csproj", "{BF8C5407-F145-4E21-80BB-63BFBE25C362}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateManagement.AppHost", "CertificateManagement.AppHost\CertificateManagement.AppHost.csproj", "{E3A8A5CA-928F-4AEB-8A4D-3155A1843855}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateManagement.ServiceDefaults", "CertificateManagement.ServiceDefaults\CertificateManagement.ServiceDefaults.csproj", "{3A6D3617-EC6B-4526-8443-DD4C2B157E28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{763F8E26-8C36-4D6B-BC07-CC71A1232EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763F8E26-8C36-4D6B-BC07-CC71A1232EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763F8E26-8C36-4D6B-BC07-CC71A1232EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763F8E26-8C36-4D6B-BC07-CC71A1232EBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF8C5407-F145-4E21-80BB-63BFBE25C362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF8C5407-F145-4E21-80BB-63BFBE25C362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF8C5407-F145-4E21-80BB-63BFBE25C362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF8C5407-F145-4E21-80BB-63BFBE25C362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A8A5CA-928F-4AEB-8A4D-3155A1843855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A8A5CA-928F-4AEB-8A4D-3155A1843855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A8A5CA-928F-4AEB-8A4D-3155A1843855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A8A5CA-928F-4AEB-8A4D-3155A1843855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A6D3617-EC6B-4526-8443-DD4C2B157E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A6D3617-EC6B-4526-8443-DD4C2B157E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A6D3617-EC6B-4526-8443-DD4C2B157E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6D3617-EC6B-4526-8443-DD4C2B157E28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CE9B65B-5ACF-4BA4-A1DE-C3E518AB9973}
+	EndGlobalSection
+EndGlobal

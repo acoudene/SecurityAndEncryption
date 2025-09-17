@@ -64,3 +64,9 @@ Selon ton déploiement :
 Si c’est Keycloak direct → configurer truststore côté Quarkus.
 
 Si c’est via un proxy (NGINX/Traefik) → configure le proxy pour faire confiance à ca.crt et exiger un certificat client.
+
+# Tests
+
+## Direct authentication
+
+http://localhost:9090/realms/mytenant/protocol/openid-connect/auth?client_id=authenticationCertificateApp&response_type=code&redirect_uri=https://mytenant.localhost.com:5002

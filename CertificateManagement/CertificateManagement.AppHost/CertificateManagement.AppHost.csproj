@@ -11,36 +11,48 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.3.1" />
-    <PackageReference Include="Aspire.Hosting.Keycloak" Version="9.4.2-preview.1.25428.12" />
+    <None Remove="Certificates\anthony.crt" />
+    <None Remove="Certificates\anthony.csr" />
+    <None Remove="Certificates\anthony.key" />
+    <None Remove="Certificates\anthony.pfx" />
+    <None Remove="Certificates\myca.crt" />
+    <None Remove="Certificates\myca.key" />
+    <None Remove="Realms\Keycloak-mytenant.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.1" />
+    <PackageReference Include="Aspire.Hosting.Keycloak" Version="9.4.1-preview.1.25408.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Certificates\anthony.crt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Certificates\anthony.csr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Certificates\anthony.key">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Certificates\anthony.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Certificates\myca.crt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Certificates\myca.key">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Realms\Keycloak-mytenant.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AuthenticationCertificateApp\AuthenticationCertificateApp\AuthenticationCertificateApp.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Certificates\anthony.crt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Certificates\anthony.csr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Certificates\anthony.key">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Certificates\anthony.pfx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Certificates\myca.crt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Certificates\myca.key">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Realms\Keycloak-mytenant.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

@@ -1752,14 +1752,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
-            "oidc-full-name-mapper",
-            "oidc-usermodel-attribute-mapper",
-            "saml-user-attribute-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
             "saml-user-property-mapper",
-            "saml-role-list-mapper",
             "oidc-usermodel-property-mapper",
+            "oidc-full-name-mapper",
+            "saml-user-attribute-mapper",
             "oidc-address-mapper",
-            "oidc-sha256-pairwise-sub-mapper"
+            "oidc-usermodel-attribute-mapper",
+            "saml-role-list-mapper"
           ]
         }
       },
@@ -1826,14 +1826,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
-            "oidc-sha256-pairwise-sub-mapper",
-            "oidc-usermodel-property-mapper",
-            "saml-role-list-mapper",
             "oidc-full-name-mapper",
             "saml-user-attribute-mapper",
+            "saml-role-list-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
+            "oidc-usermodel-attribute-mapper",
             "saml-user-property-mapper",
             "oidc-address-mapper",
-            "oidc-usermodel-attribute-mapper"
+            "oidc-usermodel-property-mapper"
           ]
         }
       },
@@ -2216,17 +2216,9 @@
           "userSetupAllowed": false
         },
         {
-          "authenticator": "auth-x509-client-username-form",
-          "authenticatorFlow": false,
-          "requirement": "ALTERNATIVE",
-          "priority": 30,
-          "autheticatorFlow": false,
-          "userSetupAllowed": false
-        },
-        {
           "authenticatorFlow": true,
           "requirement": "ALTERNATIVE",
-          "priority": 31,
+          "priority": 30,
           "autheticatorFlow": true,
           "flowAlias": "browser-x509 forms",
           "userSetupAllowed": false
@@ -2268,7 +2260,7 @@
       "builtIn": false,
       "authenticationExecutions": [
         {
-          "authenticator": "auth-username-password-form",
+          "authenticator": "auth-x509-client-username-form",
           "authenticatorFlow": false,
           "requirement": "REQUIRED",
           "priority": 20,
@@ -2276,9 +2268,17 @@
           "userSetupAllowed": false
         },
         {
+          "authenticator": "auth-username-password-form",
+          "authenticatorFlow": false,
+          "requirement": "REQUIRED",
+          "priority": 21,
+          "autheticatorFlow": false,
+          "userSetupAllowed": false
+        },
+        {
           "authenticatorFlow": true,
           "requirement": "CONDITIONAL",
-          "priority": 21,
+          "priority": 22,
           "autheticatorFlow": true,
           "flowAlias": "browser-x509 Browser - Conditional OTP",
           "userSetupAllowed": false

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlInjectionApp", "SqlInjectionApp\SqlInjectionApp\SqlInjectionApp.csproj", "{9E7BFBF9-6FD7-4845-A543-F121FD077A76}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlInjectionApp.Client", "SqlInjectionApp\SqlInjectionApp.Client\SqlInjectionApp.Client.csproj", "{C1171F1D-FF7D-49AC-9152-D8AEE464B059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_01_SqlInjectionApp", "_01_SqlInjectionApp\_01_SqlInjectionApp.csproj", "{372C4599-0EBA-4987-2B13-8A883E8A1147}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C1171F1D-FF7D-49AC-9152-D8AEE464B059}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1171F1D-FF7D-49AC-9152-D8AEE464B059}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1171F1D-FF7D-49AC-9152-D8AEE464B059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{372C4599-0EBA-4987-2B13-8A883E8A1147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{372C4599-0EBA-4987-2B13-8A883E8A1147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{372C4599-0EBA-4987-2B13-8A883E8A1147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{372C4599-0EBA-4987-2B13-8A883E8A1147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

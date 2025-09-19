@@ -1,4 +1,4 @@
-# Création du projet
+# Step 1 - Création du projet
 
 ## Application Web type Blazor Server
 
@@ -6,7 +6,7 @@
 
 # Intégration Base de données
 
-## Utilisation d'une base de données mémoire SQLite
+## Step 2 - Utilisation d'une base de données mémoire SQLite
 
 
 ## Ajout dépendances
@@ -17,7 +17,7 @@
 
 
 
-# Ajout API avec vulnérabilité
+# Step 3 - Ajout d'une API
 
 ## Ajout d'un controller Asp.Net Core ou par API minimal
 
@@ -31,7 +31,7 @@
 
 
 
-# Ajout page Web
+# Step 4 - Ajout page Web
 
 ## Lecture des users avec filtre + Bouton de recherche
 
@@ -43,18 +43,32 @@
 
 _Note : utilisation d'une branche pour ajouter un bouton de hacking_
 
-# Tests de l'injection SQL
+# Step 5 - Tests de l'injection SQL
 
 ## Utilisation de différentes requêtes dans les champs de saisie de formulaire
 
 `'; DROP TABLES --`
 
-# Protection de l'application
+# Step 6 - Protection de l'application
 
 ## Utilisation de SqlParameters
 
 
 
 ## Utilisation de Entity Framework
+
+
+
+# Step 7 - Ajout d'une faille sur l'utilisation de SqlParameters
+
+# Step 8 - Validation des entrées
+
+## Approche inclusive
+
+
+
+## Approche exclusive
+
+
 
 

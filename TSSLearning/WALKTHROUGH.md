@@ -6,7 +6,7 @@
 
 # Intégration Base de données
 
-## Utilisation d'une base de données mémoire SQLLite
+## Utilisation d'une base de données mémoire SQLite
 
 
 ## Ajout dépendances

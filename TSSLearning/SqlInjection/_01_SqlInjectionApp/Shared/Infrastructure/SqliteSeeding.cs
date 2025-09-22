@@ -21,7 +21,7 @@ public class SqliteSeeding
       conn.Open();
       var cmd = conn.CreateCommand();
       cmd.CommandText = @"DROP TABLE IF EXISTS USERS; 
-                          CREATE TABLE USERS (Id TEXT PRIMARY KEY, Name TEXT NOT NULL, Firstname TEXT NOT NULL, Email TEXT NOT NULL);";
+                          CREATE TABLE USERS (Name TEXT NOT NULL, Firstname TEXT NOT NULL, Email TEXT NOT NULL);";
       cmd.ExecuteNonQuery();
       cmd.CommandText = @"DROP TABLE IF EXISTS SECRETS; 
                           CREATE TABLE SECRETS (key TEXT PRIMARY KEY, hash TEXT NOT NULL);";      
@@ -38,10 +38,10 @@ public class SqliteSeeding
     {
       conn.Open();
       var cmd = conn.CreateCommand();
-      cmd.CommandText = $"INSERT INTO USERS (Id, Name, FirstName, Email) VALUES ('{Guid.NewGuid()}', 'Campbell', 'Grace', 'grace.campbell@scotlandyard.uk')";
+      cmd.CommandText = $"INSERT INTO USERS (Name, FirstName, Email) VALUES ('Campbell', 'Grace', 'grace.campbell@scotlandyard.uk')";
       cmd.ExecuteNonQuery();
       cmd = conn.CreateCommand();
-      cmd.CommandText = $"INSERT INTO USERS (Id, Name, FirstName, Email) VALUES ('{Guid.NewGuid()}', 'Geringën', 'Sarah', 'sarah.geringen@politi.no')";
+      cmd.CommandText = $"INSERT INTO USERS (Name, FirstName, Email) VALUES ('Geringën', 'Sarah', 'sarah.geringen@politi.no')";
       cmd.ExecuteNonQuery();
       cmd = conn.CreateCommand();
       cmd.CommandText = $"INSERT INTO SECRETS (key, hash) VALUES ('{Guid.NewGuid()}', 'a97f291da02137d38a5221edf5ad4dba698e5108c545a64c2048b15e21dd0669')";

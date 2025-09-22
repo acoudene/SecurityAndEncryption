@@ -10,7 +10,7 @@ public class UsersSqliteSafeRepository : UsersSqliteRepositoryBase
 
   public override void SetReadUsersCommand(SqliteCommand readcommand, string? searchPattern = null)
   {
-    string sqlBaseQuery = $"SELECT Id, Name, FirstName, Email FROM Users";
+    string sqlBaseQuery = $"SELECT Name, FirstName, Email FROM Users";
     if (string.IsNullOrWhiteSpace(searchPattern))
     {
       readcommand.CommandText = sqlBaseQuery;
@@ -20,8 +20,8 @@ public class UsersSqliteSafeRepository : UsersSqliteRepositoryBase
     // To avoid:
     // %'; DROP TABLE USERS; --
 
-    string where = "WHERE Id = @p OR Name LIKE @p OR FirstName LIKE @p OR Email LIKE @p";
+    string where = "WHERE Name LIKE @s OR FirstName LIKE @s OR Email LIKE @s";
     readcommand.CommandText = $"{sqlBaseQuery} {where}";
-    readcommand.Parameters.AddWithValue("@p", $"%{searchPattern}%");
+    readcommand.Parameters.AddWithValue("@s", $"%{searchPattern}%");
   }
 }

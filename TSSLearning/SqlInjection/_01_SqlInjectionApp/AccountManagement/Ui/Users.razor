@@ -83,7 +83,7 @@ else
   [Inject]
   public required NavigationManager Navigation { get; init; }
 
-  private List<UserDto>? _users;
+  private List<UserReadDto>? _users;
   private string? SearchPattern { get; set; }
 
   [SupplyParameterFromForm]

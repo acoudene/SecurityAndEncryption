@@ -28,12 +28,11 @@ public abstract class UsersSqliteRepositoryBase : IUsersRepository
       SetCommand(cmd);
       using var reader = cmd.ExecuteReader();
       while (reader.Read())
-      {
-        Guid id = reader.GetGuid(0);
-        string name = reader.GetString(1);
-        string firstName = reader.GetString(2);
-        string email = reader.GetString(3);
-        readUsers.Add(new User { Id = id, Name = name, FirstName = firstName, Email = email });
+      {        
+        string name = reader.GetString(0);
+        string firstName = reader.GetString(1);
+        string email = reader.GetString(2);
+        readUsers.Add(new User { Name = name, FirstName = firstName, Email = email });
       }
     }
 
@@ -48,13 +47,11 @@ public abstract class UsersSqliteRepositoryBase : IUsersRepository
   }
 
   public virtual Task AddAsync(User user)
-  {
-    Guid id = user.Id;
+  {    
     string name = user.Name;
     string firstName = user.FirstName;
     string email = user.Email;
-    if (id == Guid.Empty)
-      throw new ArgumentException("Id is required", nameof(user));
+   
     if (string.IsNullOrWhiteSpace(name))
       throw new ArgumentException("Name is required", nameof(user));
     if (string.IsNullOrWhiteSpace(firstName))
@@ -66,8 +63,7 @@ public abstract class UsersSqliteRepositoryBase : IUsersRepository
     {
       conn.Open();
       using var cmd = conn.CreateCommand();
-      cmd.CommandText = "INSERT INTO Users (Id, Name, FirstName, Email) VALUES (@i, @n, @f, @e);";
-      cmd.Parameters.AddWithValue("@i", id);
+      cmd.CommandText = "INSERT INTO Users (Name, FirstName, Email) VALUES (@n, @f, @e);";
       cmd.Parameters.AddWithValue("@n", name);
       cmd.Parameters.AddWithValue("@f", firstName);
       cmd.Parameters.AddWithValue("@e", email);

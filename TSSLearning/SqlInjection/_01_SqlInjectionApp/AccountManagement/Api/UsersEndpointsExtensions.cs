@@ -11,20 +11,20 @@ public static class UsersEndpointsExtensions
     app.MapGet("/api/users", async (IUsersRepository repo, string? searchPattern) =>
     {
       var users = await repo.GetByPatternAsync(searchPattern);
-      return Results.Ok(users.Select(u => new UserDto(u.Id, u.Name, u.FirstName, u.Email)));
+      return Results.Ok(users.Select(u => new UserReadDto(u.Name, u.FirstName, u.Email)));
     });
 
-    app.MapGet("/api/users/{id}", async (IUsersRepository repo, Guid id) =>
+    app.MapGet("/api/users/{name}", async (IUsersRepository repo, string name) =>
     {
-      var users = await repo.GetByPatternAsync(id.ToString());
-      return Results.Ok(users.Select(u => new UserDto(u.Id, u.Name, u.FirstName, u.Email)));
+      var users = await repo.GetByPatternAsync(name);
+      return Results.Ok(users.Select(u => new UserReadDto(u.Name, u.FirstName, u.Email)));
     });
 
     app.MapPost("/api/users", async (IUsersRepository repo, UserCreationDto dto) =>
     {
       var user = new User() { Name = dto.Name, FirstName = dto.FirstName, Email = dto.Email };
       await repo.AddAsync(user);
-      return Results.Created($"/api/users/{user.Id}", new UserDto(user.Id, user.Name, user.FirstName, user.Email));
+      return Results.Created($"/api/users/{user.Name}", new UserReadDto(user.Name, user.FirstName, user.Email));
     });
 
   }

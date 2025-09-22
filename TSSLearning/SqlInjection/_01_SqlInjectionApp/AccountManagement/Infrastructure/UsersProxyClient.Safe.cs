@@ -16,9 +16,9 @@ public class UsersProxySafeClient
     return await _httpClient.PostAsJsonAsync<UserCreationDto>(string.Empty, userCreation);
   }
 
-  public async Task<List<UserDto>?> SearchAsync(string? searchPattern = null)
+  public async Task<List<UserReadDto>?> SearchAsync(string? searchPattern = null)
   {
     string requestUri = string.IsNullOrWhiteSpace(searchPattern) ? string.Empty : $"?searchPattern={Uri.EscapeDataString(searchPattern)}";
-    return await _httpClient.GetFromJsonAsync<List<UserDto>>(requestUri);
+    return await _httpClient.GetFromJsonAsync<List<UserReadDto>>(requestUri);
   }
 }

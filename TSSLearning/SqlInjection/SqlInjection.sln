@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlInjectionApp.Client", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_01_SqlInjectionApp", "_01_SqlInjectionApp\_01_SqlInjectionApp.csproj", "{372C4599-0EBA-4987-2B13-8A883E8A1147}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Insights", "Insights", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		_01_SqlInjectionApp\AccountManagement\Infrastructure\UserSqliteUnsafeRepository.cs = _01_SqlInjectionApp\AccountManagement\Infrastructure\UserSqliteUnsafeRepository.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

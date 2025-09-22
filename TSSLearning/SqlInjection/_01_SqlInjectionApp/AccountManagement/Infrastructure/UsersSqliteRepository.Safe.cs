@@ -18,7 +18,13 @@ public class UsersSqliteSafeRepository : UsersSqliteRepositoryBase
     }
 
     // To avoid:
-    // %'; DROP TABLE USERS; --
+
+    // xxx' UNION SELECT sqlite_version(), 'x', 'x';
+    // xxx' UNION SELECT IFNULL(type, '[no type]') || ' | ' || IFNULL(name, '[no name]') || ' | ' || IFNULL(tbl_name, '[no tbl_name]') || ' | ' || IFNULL(sql, '[no sql]') AS name, 'x', 'x' FROM sqlite_master; --
+    // xxx' UNION SELECT IFNULL(company, '[no company]') || ' | ' || IFNULL(subject , '[no subject]') || ' | ' || IFNULL(value , '[no value ]') AS name, 'x', 'x' FROM CONTRACTS; --
+    // xxx' UNION SELECT IFNULL(key, '[no key]') || ' | ' || IFNULL(hash, '[no hash]') AS name, 'x', 'x' FROM SECRETS; --
+    // xxx'; DROP TABLE USERS; --
+
 
     string where = "WHERE Name LIKE @s OR FirstName LIKE @s OR Email LIKE @s";
     readcommand.CommandText = $"{sqlBaseQuery} {where}";

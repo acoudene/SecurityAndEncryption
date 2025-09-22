@@ -2,9 +2,9 @@
 
 namespace _01_SqlInjectionApp.Users.Infrastructure;
 
-public class UsersSqliteUnsafeRepository : UsersSqliteRepositoryBase
+public class UsersSqliteRepository : UsersSqliteRepositoryBase
 {
-  public UsersSqliteUnsafeRepository(string connectionString)
+  public UsersSqliteRepository(string connectionString)
     : base(connectionString)
   { }
 

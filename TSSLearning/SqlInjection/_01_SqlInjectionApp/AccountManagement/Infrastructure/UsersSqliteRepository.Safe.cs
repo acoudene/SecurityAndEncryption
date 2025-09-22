@@ -17,6 +17,9 @@ public class UsersSqliteSafeRepository : UsersSqliteRepositoryBase
       return;
     }
 
+    // To avoid:
+    // %'; DROP TABLE USERS; --
+
     string where = "WHERE Id = @p OR Name LIKE @p OR FirstName LIKE @p OR Email LIKE @p";
     readcommand.CommandText = $"{sqlBaseQuery} {where}";
     readcommand.Parameters.AddWithValue("@p", $"%{searchPattern}%");

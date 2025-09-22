@@ -1,5 +1,6 @@
 ﻿namespace _01_SqlInjectionApp.Shared.Api;
 
+using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 
 public class ExceptionHandlingMiddleware
@@ -22,22 +23,26 @@ public class ExceptionHandlingMiddleware
     catch (ArgumentException ex)
     {
       _logger.LogWarning(ex, "Bad request");
-      await WriteResultAsync(context,
-          Results.Problem(
-              detail: ex.Message,
-              statusCode: StatusCodes.Status400BadRequest,
-              title: "Bad Request"
-          ));
+
+      var result = Results.Problem(
+                      title: "Bad Request",
+                      detail: ex.Message,
+                      statusCode: StatusCodes.Status400BadRequest);
+
+      context.Response.ContentType = MediaTypeNames.Application.ProblemJson;
+      await result.ExecuteAsync(context);
     }
     catch (Exception ex)
     {
       _logger.LogError(ex, "Internal Server Error");
-      await WriteResultAsync(context,
-          Results.Problem(
-              detail: "An unexpected error occurred.",
-              statusCode: StatusCodes.Status500InternalServerError,
-              title: "Internal Server Error"
-          ));
+
+      var result = Results.Problem(
+                title: "Internal Server Error",
+                detail: ex.Message,
+                statusCode: StatusCodes.Status500InternalServerError);
+
+      context.Response.ContentType = MediaTypeNames.Application.ProblemJson;
+      await result.ExecuteAsync(context);
     }
   }
 

@@ -6,14 +6,14 @@ using _01_SqlInjectionApp.Users.Application;
 using _01_SqlInjectionApp.Users.Infrastructure;
 using Microsoft.AspNetCore.Components;
 
-
 #region Database prerequisites
+
 string connectionString = $"Data Source=sqlite.db";
 var sqliteSeeding = new SqliteSeeding(connectionString);
 sqliteSeeding.EnsureDatabases();
 sqliteSeeding.Seed();
-#endregion
 
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,10 +21,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-
 #region Injections
-builder.Services.AddScoped<IUsersRepository>(sp => new UsersSqliteUnsafeRepository(connectionString));
-builder.Services.AddScoped<UsersProxyClient>(serviceProvider =>
+
+builder.Services.AddScoped<IUsersRepository>(sp => new UsersSqliteRepository(connectionString));
+builder.Services.AddScoped<UsersProxySafeClient>(serviceProvider =>
 {
   var nav = serviceProvider.GetRequiredService<NavigationManager>();
   string? baseUrl = nav?.BaseUri;
@@ -35,10 +35,10 @@ builder.Services.AddScoped<UsersProxyClient>(serviceProvider =>
   {
     BaseAddress = new Uri(new Uri(baseUrl), "/api/users/")
   };
-  return new UsersProxyClient(httpClient);
+  return new UsersProxySafeClient(httpClient);
 });
-#endregion
 
+#endregion
 
 var app = builder.Build();
 
@@ -58,11 +58,11 @@ app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-
 #region API settings
+
 app.MapUsersEndpoints();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
-#endregion
 
+#endregion
 
 app.Run();

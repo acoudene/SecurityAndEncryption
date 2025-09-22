@@ -24,8 +24,7 @@ public class SqliteSeeding
                           CREATE TABLE USERS (Id TEXT PRIMARY KEY, Name TEXT NOT NULL, Firstname TEXT NOT NULL, Email TEXT NOT NULL);";
       cmd.ExecuteNonQuery();
       cmd.CommandText = @"DROP TABLE IF EXISTS SECRETS; 
-                          CREATE TABLE SECRETS (key TEXT PRIMARY KEY, hash TEXT NOT NULL);";
-      
+                          CREATE TABLE SECRETS (key TEXT PRIMARY KEY, hash TEXT NOT NULL);";      
       cmd.ExecuteNonQuery();
       cmd.CommandText = @"DROP TABLE IF EXISTS CONTRACTS; 
                           CREATE TABLE CONTRACTS (company TEXT PRIMARY KEY, subject TEXT NOT NULL, value LONG NOT NULL);";      

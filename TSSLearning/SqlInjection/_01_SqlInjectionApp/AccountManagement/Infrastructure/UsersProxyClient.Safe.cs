@@ -2,11 +2,11 @@
 
 namespace _01_SqlInjectionApp.Users.Infrastructure;
 
-public class UsersProxyClient
+public class UsersProxySafeClient
 {
   private readonly HttpClient _httpClient;
 
-  public UsersProxyClient(HttpClient httpClient)
+  public UsersProxySafeClient(HttpClient httpClient)
   {
     _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));    
   }
@@ -18,7 +18,7 @@ public class UsersProxyClient
 
   public async Task<List<UserDto>?> SearchAsync(string? searchPattern = null)
   {
-    string requestUri = string.IsNullOrWhiteSpace(searchPattern) ? string.Empty : $"?searchPattern={searchPattern}";
+    string requestUri = string.IsNullOrWhiteSpace(searchPattern) ? string.Empty : $"?searchPattern={Uri.EscapeDataString(searchPattern)}";
     return await _httpClient.GetFromJsonAsync<List<UserDto>>(requestUri);
   }
 }

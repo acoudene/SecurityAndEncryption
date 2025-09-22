@@ -49,20 +49,30 @@ public abstract class UsersSqliteRepositoryBase : IUsersRepository
 
   public virtual Task AddAsync(User user)
   {
-    string? name = user.Name;
-    string? email = user.Email;
-    if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email))
-      throw new ArgumentException("Name and Email are required", nameof(user));
+    Guid id = user.Id;
+    string name = user.Name;
+    string firstName = user.FirstName;
+    string email = user.Email;
+    if (id == Guid.Empty)
+      throw new ArgumentException("Id is required", nameof(user));
+    if (string.IsNullOrWhiteSpace(name))
+      throw new ArgumentException("Name is required", nameof(user));
+    if (string.IsNullOrWhiteSpace(firstName))
+      throw new ArgumentException("FirstName is required", nameof(user));
+    if (string.IsNullOrWhiteSpace(email))
+      throw new ArgumentException("Email is required", nameof(user));
 
     using (var conn = new SqliteConnection(_connectionString))
     {
       conn.Open();
       using var cmd = conn.CreateCommand();
-      cmd.CommandText = "INSERT INTO Users (Username, Email) VALUES (@u, @e);";
-      cmd.Parameters.AddWithValue("@u", name);
+      cmd.CommandText = "INSERT INTO Users (Id, Name, FirstName, Email) VALUES (@i, @n, @f, @e);";
+      cmd.Parameters.AddWithValue("@i", id);
+      cmd.Parameters.AddWithValue("@n", name);
+      cmd.Parameters.AddWithValue("@f", firstName);
       cmd.Parameters.AddWithValue("@e", email);
       int rows = cmd.ExecuteNonQuery();
-      if (rows == 1)
+      if (rows != 1)
         throw new InvalidOperationException("Error during user creation");
     }
 

@@ -60,7 +60,7 @@ public class UsersSqliteRepository : IUsersRepository
     {
       conn.Open();
       using var cmd = conn.CreateCommand();
-      cmd.CommandText = "INSERT INTO Users (Name, FirstName, Email) VALUES (@n, @f, @e);";
+      cmd.CommandText = $"INSERT INTO Users (Name, FirstName, Email) VALUES ('{name}', '{firstName}', '{email}');";
       cmd.Parameters.AddWithValue("@n", name);
       cmd.Parameters.AddWithValue("@f", firstName);
       cmd.Parameters.AddWithValue("@e", email);

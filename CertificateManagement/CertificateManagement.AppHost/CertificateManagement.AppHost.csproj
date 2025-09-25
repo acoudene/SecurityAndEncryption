@@ -15,8 +15,6 @@
     <None Remove="Certificates\anthony.csr" />
     <None Remove="Certificates\anthony.key" />
     <None Remove="Certificates\anthony.pfx" />
-    <None Remove="Certificates\myca.crt" />
-    <None Remove="Certificates\myca.key" />
     <None Remove="Realms\Keycloak-mytenant.json" />
   </ItemGroup>
 
@@ -38,10 +36,10 @@
     <Content Include="Certificates\anthony.pfx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Certificates\myca.crt">
+    <Content Include="Certificates\rootCA.crt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Certificates\myca.key">
+    <Content Include="Certificates\rootCA.key">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Realms\Keycloak-mytenant.json">
@@ -53,6 +51,33 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuthenticationCertificateApp\AuthenticationCertificateApp\AuthenticationCertificateApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Certificates\anthony.p12">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\localhost-crt.pem">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\localhost-key.pem">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\localhost.crt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\localhost.csr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\localhost.ext">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\localhost.key">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\truststore.jks">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

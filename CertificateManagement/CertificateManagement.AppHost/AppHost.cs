@@ -1,4 +1,6 @@
-﻿var builder = DistributedApplication.CreateBuilder(args);
+﻿using Aspire.Hosting;
+
+var builder = DistributedApplication.CreateBuilder(args);
 
 /// Use Jaeger
 var jaeger = builder.AddContainer("jaeger", "jaegertracing/all-in-one")
@@ -22,6 +24,14 @@ var keycloak = builder.AddKeycloak("keycloak", 9090, username, password)
   //,"--log-level=INFO,org.keycloak:debug,org.keycloak.events:trace" // Enable detailed logging for debugging
   //,"--log-level=debug" // Enable detailed logging for debugging
   )
+  .WithEnvironment("KC_HTTPS_CERTIFICATE_KEY_FILE", "/opt/keycloak/conf/localhost.key.pem")
+  .WithEnvironment("KC_HTTPS_CERTIFICATE_FILE", "/opt/keycloak/conf/localhost.crt.pem")
+  .WithEnvironment("KC_HTTPS_TRUST_STORE_FILE", "/opt/keycloak/conf/truststore.jks")
+  .WithEnvironment("KC_HTTPS_TRUST_STORE_PASSWORD", "password")
+  .WithEnvironment("KC_HTTPS_CLIENT_AUTH", "request")
+  .WithBindMount("./Certificates/localhost-key.pem", "/opt/keycloak/conf/localhost.key.pem")
+  .WithBindMount("./Certificates/localhost-crt.pem", "/opt/keycloak/conf/localhost.crt.pem")
+  .WithBindMount("./Certificates/truststore.jks", "/opt/keycloak/conf/truststore.jks")
   .WithRealmImport("./Realms")
   //.WithLifetime(ContainerLifetime.Persistent)
   .WaitFor(jaeger) // Configure Keycloak with a persistent lifetime, useful to avoid long startup times on each run

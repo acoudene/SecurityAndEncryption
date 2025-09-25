@@ -119,7 +119,7 @@ Si c’est via un proxy (NGINX/Traefik) → configure le proxy pour faire confia
 
 ## Direct authentication
 
-http://localhost:9090/realms/mytenant/protocol/openid-connect/auth?client_id=authenticationCertificateApp&response_type=code&redirect_uri=https://mytenant.localhost.com:5002
+https://localhost:8443/realms/mytenant/protocol/openid-connect/auth?client_id=authenticationCertificateApp&response_type=code&redirect_uri=https://mytenant.localhost.com:5002
 
 # Références
 

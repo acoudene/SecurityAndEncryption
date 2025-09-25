@@ -1,6 +1,4 @@
-﻿using Aspire.Hosting;
-
-var builder = DistributedApplication.CreateBuilder(args);
+﻿var builder = DistributedApplication.CreateBuilder(args);
 
 /// Use Jaeger
 var jaeger = builder.AddContainer("jaeger", "jaegertracing/all-in-one")
@@ -13,16 +11,23 @@ var jaeger = builder.AddContainer("jaeger", "jaegertracing/all-in-one")
 var username = builder.AddParameter("username", "admin");
 var password = builder.AddParameter("password", "admin", secret: true);
 
-var keycloak = builder.AddKeycloak("keycloak", 9090, username, password)
+var keycloak = builder.AddKeycloak("keycloak", 8080, username, password)
+  .WithEndpoint(8443, 8443, "https", "https")
+  //.WithEndpoint(9000, 9000, "https", "https-admin")
   .WithArgs(
   "--tracing-enabled=true", // Enable tracing for monitoring, export by default to http://localhost:4317 in gRPC
   "--tracing-endpoint=http://jaeger:4317", // 👈 Ajout de l'endpoint correct
   "--metrics-enabled=true", // Enable metrics for monitoring
   "--event-metrics-user-enabled=true",
   "--event-metrics-user-events=login,logout",
-  "--event-metrics-user-tags=realm,idp,clientId"
+  "--event-metrics-user-tags=realm,idp,clientId",
+  "--log-level=org.keycloak.authentication.authenticators.x509:debug",
+  "--https-port=8443"
   //,"--log-level=INFO,org.keycloak:debug,org.keycloak.events:trace" // Enable detailed logging for debugging
   //,"--log-level=debug" // Enable detailed logging for debugging
+  //,"--https-trust-store-file=truststore.jks"
+  //,"--https-trust-store-password=password"
+  //,"--https-client-auth=required"
   )
   .WithEnvironment("KC_HTTPS_CERTIFICATE_KEY_FILE", "/opt/keycloak/conf/localhost.key.pem")
   .WithEnvironment("KC_HTTPS_CERTIFICATE_FILE", "/opt/keycloak/conf/localhost.crt.pem")

@@ -60,6 +60,10 @@ public class UsersSqliteSafeRepository : IUsersRepository
     {
       conn.Open();
       using var cmd = conn.CreateCommand();
+
+      // To avoid:
+      // x', 'x', (SELECT IFNULL(company, '[no company]') || ' | ' || IFNULL(subject , '[no subject]') || ' | ' || IFNULL(value , '[no value ]') AS name FROM CONTRACTS)); --
+
       cmd.CommandText = "INSERT INTO Users (Name, FirstName, Email) VALUES (@n, @f, @e);";
       cmd.Parameters.AddWithValue("@n", name);
       cmd.Parameters.AddWithValue("@f", firstName);

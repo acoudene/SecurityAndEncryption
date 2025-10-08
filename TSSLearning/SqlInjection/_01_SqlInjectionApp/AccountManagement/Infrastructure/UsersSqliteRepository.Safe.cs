@@ -99,3 +99,8 @@ public class UsersSqliteSafeRepository : IUsersRepository
     readcommand.Parameters.AddWithValue("@s", $"%{searchPattern}%");
   }
 }
+
+// TODO :
+// 1. ajouter des éléments démontrant que les SqlParameters ne sont pas suffisants, Order By avec chaine directement par exemple
+// 2. mettre en place un correctif pour sécuriser ce cas via une validation des entrées.
+// 3. Validation des entrées par exclusion et une autre par inclusion (avantages/inconvénients).

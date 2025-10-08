@@ -23,7 +23,8 @@ builder.Services.AddRazorComponents()
 
 #region Injections
 
-builder.Services.AddScoped<IUsersRepository>(sp => new UsersSqliteRepository(connectionString));
+//builder.Services.AddScoped<IUsersRepository>(sp => new UsersSqliteRepository(connectionString));
+builder.Services.AddScoped<IUsersRepository>(sp => new UsersSqliteSafeRepository(connectionString));
 builder.Services.AddScoped<UsersProxySafeClient>(serviceProvider =>
 {
   var nav = serviceProvider.GetRequiredService<NavigationManager>();
@@ -61,6 +62,7 @@ app.MapRazorComponents<App>()
 #region API settings
 
 app.MapUsersEndpoints();
+app.MapUserDetailsEndpoints();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 #endregion

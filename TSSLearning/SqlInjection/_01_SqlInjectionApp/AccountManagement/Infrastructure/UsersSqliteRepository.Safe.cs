@@ -64,10 +64,16 @@ public class UsersSqliteSafeRepository : IUsersRepository
       // To avoid:
       // x', 'x', (SELECT IFNULL(company, '[no company]') || ' | ' || IFNULL(subject , '[no subject]') || ' | ' || IFNULL(value , '[no value ]') AS name FROM CONTRACTS)); --
 
-      cmd.CommandText = "INSERT INTO Users (Name, FirstName, Email) VALUES (@n, @f, @e);";
-      cmd.Parameters.AddWithValue("@n", name);
-      cmd.Parameters.AddWithValue("@f", firstName);
-      cmd.Parameters.AddWithValue("@e", email);
+      cmd.CommandText = "INSERT INTO Users (Name, FirstName, Email) VALUES (@name, @firstName, @eMail);";
+      cmd.Parameters.AddWithValue("@name", name);
+      cmd.Parameters.AddWithValue("@firstName", firstName);
+      cmd.Parameters.AddWithValue("@eMail", email);
+
+      // Or (other syntax)      
+      //cmd.Parameters.Add(new SqliteParameter("@name", name));
+      //cmd.Parameters.Add(new SqliteParameter("@firstName", firstName));
+      //cmd.Parameters.Add(new SqliteParameter("@eMail", email));
+
       int rows = cmd.ExecuteNonQuery();
       if (rows != 1)
         throw new InvalidOperationException("Error during user creation");
@@ -94,9 +100,9 @@ public class UsersSqliteSafeRepository : IUsersRepository
     // xxx'; DROP TABLE USERS;  DROP TABLE CONTRACTS; DROP TABLE SECRETS; --
 
 
-    string where = "WHERE Name LIKE @s OR FirstName LIKE @s OR Email LIKE @s";
+    string where = "WHERE Name LIKE @searchPattern OR FirstName LIKE @searchPattern OR Email LIKE @searchPattern";
     readcommand.CommandText = $"{sqlBaseQuery} {where}";
-    readcommand.Parameters.AddWithValue("@s", $"%{searchPattern}%");
+    readcommand.Parameters.AddWithValue("@searchPattern", $"%{searchPattern}%");
   }
 }
 

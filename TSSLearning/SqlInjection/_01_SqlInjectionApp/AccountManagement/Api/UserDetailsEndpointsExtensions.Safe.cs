@@ -15,8 +15,9 @@ public static class UserDetailsEndpointsSafeExtensions
     app.MapGet("/api/users/details/{name}", async (IUsersRepository repo, string name) =>
     {
       StringBuilder sb = new StringBuilder();
-      sb.AppendLine("<html>");
-      sb.AppendLine("<body>");
+      sb
+      .AppendLine("<html>")
+      .AppendLine("<body>");
 
       var users = await repo.GetByPatternAsync(name);
       foreach (var user in users)
@@ -24,13 +25,13 @@ public static class UserDetailsEndpointsSafeExtensions
         sb
         .Append("<h1>")
         .Append($"{user.FirstName} {user.Name}")
-        .AppendLine("</h1>");
-        sb
-        .AppendLine($"<p>avec l'email {user.Email}</p>");
+        .AppendLine("</h1>")
+        .AppendLine($"<p>Email: {user.Email}</p>");
       }
 
-      sb.AppendLine("</body>");
-      sb.AppendLine("</html>");
+      sb
+      .AppendLine("</body>")
+      .AppendLine("</html>");
 
       return Results.Content(sb.ToString(), MediaTypeNames.Text.Html, Encoding.UTF8);
     });

@@ -211,19 +211,39 @@ Le certificat, combiné avec les signatures numériques, permet de vérifier qu'
 ```mermaid
 sequenceDiagram
     participant Emetteur as Émetteur
+    participant CA as Autorité de Certification
     participant Destinataire as Destinataire
+    participant Truststore as Truststore du Destinataire
     
-    Emetteur->>Emetteur: 1. Prépare les données à envoyer
-    Emetteur->>Emetteur: 2. Calcule le hash des données (SHA-256)
-    Emetteur->>Emetteur: 3. Signe le hash avec sa clé privée
-    Emetteur->>Destinataire: 4. Envoie données + signature + certificat
-    Destinataire->>Destinataire: 5. Recalcule le hash des données reçues
-    Destinataire->>Destinataire: 6. Déchiffre la signature avec la clé publique du certificat
-    Destinataire->>Destinataire: 7. Compare les deux hash
+    Note over Emetteur,Truststore: PHASE 1 : Configuration initiale (en amont)
+    
+    Emetteur->>CA: 1. Demande un certificat (envoie un CSR)
+    CA->>CA: 2. Vérifie l'identité de l'émetteur
+    CA->>CA: 3. Signe le certificat avec sa clé privée
+    CA->>Emetteur: 4. Délivre le certificat signé
+    
+    CA->>CA: 5. Publication de son certificat racine
+    Destinataire->>CA: 6. Télécharge le certificat racine de la CA
+    Destinataire->>Truststore: 7. Importe le certificat de la CA dans le truststore
+    
+    Note over Emetteur,Destinataire: PHASE 2 : Échange avec vérification d'intégrité
+    
+    Emetteur->>Emetteur: 8. Prépare les données à envoyer
+    Emetteur->>Emetteur: 9. Calcule le hash des données (SHA-256)
+    Emetteur->>Emetteur: 10. Signe le hash avec sa clé privée
+    Emetteur->>Destinataire: 11. Envoie données + signature + certificat
+    
+    Destinataire->>Truststore: 12. Récupère le certificat de la CA émettrice
+    Destinataire->>Destinataire: 13. Vérifie la signature du certificat<br/>avec la clé publique de la CA
+    Destinataire->>Destinataire: 14. Vérifie la validité du certificat
+    Destinataire->>Destinataire: 15. Recalcule le hash des données reçues
+    Destinataire->>Destinataire: 16. Déchiffre la signature avec la clé publique<br/>du certificat de l'émetteur
+    Destinataire->>Destinataire: 17. Compare les deux hash
+    
     alt Hash identiques
-        Destinataire->>Destinataire: ✓ Intégrité confirmée
+        Destinataire->>Destinataire: ✓ Intégrité confirmée + Émetteur vérifié
     else Hash différents
-        Destinataire->>Destinataire: ✗ Données modifiées - Rejet
+        Destinataire->>Destinataire: ✗ Données modifiées ou signature invalide - Rejet
     end
 ```
 

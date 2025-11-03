@@ -124,10 +124,10 @@ sequenceDiagram
     Note over Bob: Confidentialité garantie ✓
 ```
 
-L'expéditeur récupère le certificat du destinataire (donc sa clé publique)
-L'expéditeur utilise cette clé publique pour chiffrer les données ou (plus couramment) pour chiffrer une clé de session symétrique
-Seul le destinataire, possédant la clé privée, peut déchiffrer
-Dans les protocoles modernes comme TLS, on utilise un chiffrement hybride : la clé publique chiffre une clé symétrique, puis cette clé symétrique chiffre les données (plus rapide)
+- L'expéditeur récupère le certificat du destinataire (donc sa clé publique)
+- L'expéditeur utilise cette clé publique pour chiffrer les données ou (plus couramment) pour chiffrer une clé de session symétrique
+- Seul le destinataire, possédant la clé privée, peut déchiffrer
+- Dans les protocoles modernes comme TLS, on utilise un chiffrement hybride : la clé publique chiffre une clé symétrique, puis cette clé symétrique chiffre les données (plus rapide)
 
 ### Exemple concret
 

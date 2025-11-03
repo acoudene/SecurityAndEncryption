@@ -145,19 +145,36 @@ Le certificat prouve que vous êtes bien qui vous prétendez être, car il a ét
 ```mermaid
 sequenceDiagram
     participant Client as Client/Utilisateur
-    participant Serveur as Serveur
     participant CA as Autorité de Certification
+    participant Admin as Administrateur Serveur
+    participant Truststore as Truststore du Serveur
+    participant Serveur as Serveur
     
-    Client->>Serveur: 1. Demande de connexion
-    Serveur->>Client: 2. Demande du certificat
-    Client->>Serveur: 3. Présente son certificat (clé publique + identité)
-    Serveur->>Serveur: 4. Vérifie la signature du certificat avec la clé publique de la CA
-    Serveur->>Serveur: 5. Vérifie la validité (dates, révocation)
-    Serveur->>Client: 6. Envoie un challenge (données aléatoires)
-    Client->>Client: 7. Signe le challenge avec sa clé privée
-    Client->>Serveur: 8. Renvoie la réponse signée
-    Serveur->>Serveur: 9. Vérifie la réponse avec la clé publique du certificat
-    Serveur->>Client: 10. Accès accordé - Identité authentifiée ✓
+    Note over Client,Truststore: PHASE 1 : Configuration initiale (en amont)
+    
+    CA->>CA: Publication de son certificat racine
+    Admin->>CA: 1. Télécharge le certificat racine de la CA
+    Admin->>Truststore: 2. Importe le certificat de la CA dans le truststore
+    Note over Truststore: Le truststore contient maintenant<br/>le certificat de la CA de confiance
+    
+    Client->>CA: 3. Demande un certificat (envoie un CSR)
+    CA->>CA: 4. Vérifie l'identité du client
+    CA->>CA: 5. Signe le certificat avec sa clé privée
+    CA->>Client: 6. Délivre le certificat signé
+    
+    Note over Client,Serveur: PHASE 2 : Authentification (lors de la connexion)
+    
+    Client->>Serveur: 7. Demande de connexion
+    Serveur->>Client: 8. Demande du certificat
+    Client->>Serveur: 9. Présente son certificat (clé publique + identité)
+    Serveur->>Truststore: 10. Récupère le certificat de la CA émettrice
+    Serveur->>Serveur: 11. Vérifie la signature du certificat client<br/>avec la clé publique de la CA
+    Serveur->>Serveur: 12. Vérifie la validité (dates, révocation, identité)
+    Serveur->>Client: 13. Envoie un challenge (données aléatoires)
+    Client->>Client: 14. Signe le challenge avec sa clé privée
+    Client->>Serveur: 15. Renvoie la réponse signée
+    Serveur->>Serveur: 16. Vérifie la réponse avec la clé publique<br/>du certificat client
+    Serveur->>Client: 17. Accès accordé - Identité authentifiée ✓
 ```
 
 - Une entité (serveur, utilisateur) présente son certificat contenant sa clé publique et ses informations d'identité
